@@ -10,10 +10,8 @@ public class Animal {
     }
 
     public void speak(){
-      /*print the following message replacing the ? with name/age/noise:
-      My name is ?.
-      I am ? years old.
-      I say ?.
-      */
+      System.out.println("My name is " + name + ".");
+      System.out.println("I am " + age + " years old.");
+      System.out.println("I say " + noise + ".");
     }
 }
