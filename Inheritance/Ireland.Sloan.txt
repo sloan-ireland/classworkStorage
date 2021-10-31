@@ -1,0 +1,85 @@
+*/Sloan Ireland
+
+Partner: William Guo
+
+1. Which notes and examples from class were helpful for completing the classwork?
+The notes and particularly the diagrams for the concept of using the Super()
+constructor to get constructors and private variables from the parent or superclass
+above in the hierarchy. Having the examples made it pretty clear what to do when
+the description of just the concept was still confusing. Also the note to
+about the this.varname syntax was very helpful as I would have a very long time\
+trying to figure it out.
+2. If you didn't complete the classwork: What would have helped you complete the classwork today?
+The only part that we didn't finish was fully analyzing why the example that called
+the subclass and then the superclass produced an error. I am not sure what would
+have helped speed things up. Felt pretty good about the flow for the classwork. 
+*/
+
+
+//-----> Animal Class
+public class Animal {
+    private String noise;
+    private int age;
+    private String name;
+
+    public Animal(String noise, int age, String name){
+        this.noise = noise;
+        this.age = age;
+        this.name = name;
+    }
+
+    public void speak(){
+      System.out.println("My name is " + name + ".");
+      System.out.println("I am " + age + " years old.");
+      System.out.println("I say " + noise + ".");
+    }
+}
+
+//-----> Bird Class
+public class Bird extends Animal {
+    private double height;
+    private String color;
+
+    public Bird(String noise, int age, String name, double height, String color){
+        super(noise,age,name);
+        this.height = height;
+        this.color = color;
+        //construct the Bird
+    }
+
+    public void speak(){
+      super.speak();
+      System.out.println("I am " + color + ".");
+      System.out.println("I am " + height + " inches tall.");
+      /*WITHOUT REPEATING CODE:
+      print the following message replacing the ? with name/age/noise/color/height:
+      My name is ?.
+      I am ? years old.
+      I say ?.
+      I am ?
+      I am ? inches tall
+      */
+      //warning, you cannot access private variables, so you CAN'T duplicate the code!
+    }
+}
+
+//-----> Tester (Main) Class
+public class Tester{
+  public static void main (String[] args){
+    Animal bear = new Animal("bear",20, "I'm hungry");
+
+    bear.speak();
+
+    Bird parrot = new Bird("cereal",50,"Captain Cruch",2,"rainbow");
+    parrot.speak();
+
+    Animal a1= new Animal("hi",12,"yes");
+    a1.speak();
+    Bird b1= new Bird("no",13,"this is",3,"pink");
+    b1.speak();
+    //Bird b2= new Animal("school",52,"peanuts");
+    // b2.speak();
+    Animal a2= new Bird("fasdf",14,"i don't care",7,"blue");
+      a2.speak();
+  }
+}
