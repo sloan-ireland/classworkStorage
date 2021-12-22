@@ -13,7 +13,7 @@ public class Integer {
         result += valueOfDigit(s.charAt(i));
       }
       else {
-        result += valueOfDigit(s.charAt(i)) * ((10 * (s.length() - 1 - i)));
+        result += valueOfDigit(s.charAt(i)) * (Math.pow(10, s.length() - 1 -i));
       }
     }
     return result;
